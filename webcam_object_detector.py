@@ -9,7 +9,7 @@ model_proto = 'MobileNetSSD_deploy.prototxt'
 
 net = cv2.dnn.readNetFromCaffe(model_proto, model_name)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 
 while True:
     ret, frame = cap.read()
@@ -17,7 +17,7 @@ while True:
         break
 
     detect_objects_and_draw_boxes(net, frame)
-    cv2.imshow("Object Detector", cv2.resize, (frame, (1000, 700)))
+    cv2.imshow("Object Detector", cv2.resize(frame, (1000, 700)))
 
     k = cv2.waitKey(10)
     if k == ord('q'):
